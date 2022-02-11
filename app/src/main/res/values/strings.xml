@@ -1,0 +1,5 @@
+<resources>
+    <string name="hint_search">Search…</string>
+    <string name="title_error_dialog">Error</string>
+    <string name="app_name">Hepsiburada Case</string>
+</resources>
