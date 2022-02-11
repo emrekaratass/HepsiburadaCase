@@ -22,7 +22,7 @@ class MainViewModel @Inject constructor(
 ) : ViewModel() {
 
     private var page: Int = 0
-    private var artObjectsSize: Int = 0
+    private var articlesSize: Int = 0
     private var query: String? = null
     private var entity: String? = null
     private var isFetchingData: Boolean = false
@@ -51,7 +51,7 @@ class MainViewModel @Inject constructor(
                     is Result.Error ->
                         if (page == 0) _errorLiveData.value = result.exception.localizedMessage
                     is Result.Success -> result.data.let {
-                        artObjectsSize += it.results.size
+                        articlesSize += it.results.size
                         if (page == 0) _setListLiveData.postValue(it) else _addListLiveData.postValue(
                             it
                         )
@@ -64,7 +64,7 @@ class MainViewModel @Inject constructor(
     }
 
     fun paginateCollection(lastVisibleItemPosition: Int) {
-        if (lastVisibleItemPosition < artObjectsSize - PAGINATION_THRESHOLD) return
+        if (lastVisibleItemPosition < articlesSize - PAGINATION_THRESHOLD) return
         fetchCollection()
     }
 
@@ -81,11 +81,11 @@ class MainViewModel @Inject constructor(
 
     fun clearData() {
         page = 0
-        artObjectsSize = 0
+        articlesSize = 0
     }
 
     companion object {
         private const val SEARCH_DELAY = 1_000L
-        private const val PAGINATION_THRESHOLD = 20
+        private const val PAGINATION_THRESHOLD = 3
     }
 }

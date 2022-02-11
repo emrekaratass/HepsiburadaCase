@@ -13,22 +13,22 @@ import java.util.*
 class ArticlesAdapter(
     private var list: ArrayList<ArticleViewItem> = arrayListOf(),
     private var block: (ArticleViewItem) -> Unit
-) : RecyclerView.Adapter<ArticlesAdapter.ArtObjectViewHolder>() {
+) : RecyclerView.Adapter<ArticlesAdapter.ArticleViewHolder>() {
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): ArtObjectViewHolder {
+    ): ArticleViewHolder {
         val itemBinding =
             ItemArticleBinding.inflate(
                 LayoutInflater.from(parent.context),
                 parent,
                 false
             )
-        return ArtObjectViewHolder(itemBinding)
+        return ArticleViewHolder(itemBinding)
     }
 
-    override fun onBindViewHolder(holder: ArtObjectViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ArticleViewHolder, position: Int) {
         val item: ArticleViewItem = list[position]
         with(holder.binding) {
             val collectionPrice: String = if (item.collectionPrice == 0.0) {
@@ -60,6 +60,6 @@ class ArticlesAdapter(
         notifyDataSetChanged()
     }
 
-    class ArtObjectViewHolder(val binding: ItemArticleBinding) :
+    class ArticleViewHolder(val binding: ItemArticleBinding) :
         RecyclerView.ViewHolder(binding.root)
 }

@@ -41,5 +41,6 @@ class GetCollectionUseCase @Inject constructor(
 data class CollectionParams(
     val page: Int,
     val query: String?,
-    val entity: String?
+    val entity: String?,
+    val pageSize: String = "20"
 ) : Params()

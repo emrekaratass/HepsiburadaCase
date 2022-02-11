@@ -60,7 +60,7 @@
             android:button="@android:color/transparent"
             android:gravity="center"
             android:padding="10dp"
-            android:text="Movies"
+            android:text="@string/lbl_movies"
             android:textColor="@color/black" />
 
         <RadioButton
@@ -72,7 +72,7 @@
             android:button="@android:color/transparent"
             android:gravity="center"
             android:padding="10dp"
-            android:text="Music"
+            android:text="@string/lbl_music"
             android:textColor="@color/black" />
 
         <RadioButton
@@ -84,7 +84,7 @@
             android:button="@android:color/transparent"
             android:gravity="center"
             android:padding="10dp"
-            android:text="Apps"
+            android:text="@string/lbl_apps"
             android:textColor="@color/black" />
 
         <RadioButton
@@ -96,7 +96,7 @@
             android:button="@android:color/transparent"
             android:gravity="center"
             android:padding="10dp"
-            android:text="Books"
+            android:text="@string/lbl_books"
             android:textColor="@color/black" />
     </RadioGroup>
 

@@ -16,6 +16,8 @@ import com.example.hepsiburadacase.MainActivity
 import com.example.hepsiburadacase.R
 import com.example.hepsiburadacase.databinding.FragmentMainBinding
 import com.example.hepsiburadacase.util.delegate.viewBinding
+import com.example.hepsiburadacase.util.enums.SearchEntityType
+import com.example.hepsiburadacase.util.enums.SearchTabType
 import com.example.hepsiburadacase.util.extension.findLastVisibleItemPosition
 import com.example.hepsiburadacase.util.extension.showErrorDialog
 import dagger.hilt.android.AndroidEntryPoint
@@ -26,7 +28,7 @@ class MainFragment : Fragment(R.layout.fragment_main) {
     private val binding: FragmentMainBinding by viewBinding()
     private val viewModel: MainViewModel by lazy { ViewModelProvider(this)[MainViewModel::class.java] }
 
-    private var entity = "movie"
+    private var entity = SearchEntityType.MOVIES.type
     private var query = ""
 
     private val adapter: ArticlesAdapter by lazy {
@@ -81,10 +83,10 @@ class MainFragment : Fragment(R.layout.fragment_main) {
 
     private fun getSelectedEntity(entity: String): String =
         when (entity) {
-            "Movies" -> "movie"
-            "Music" -> "musicVideo"
-            "Apps" -> "software"
-            "Books" -> "ebook"
+            SearchTabType.MOVIES.type -> SearchEntityType.MOVIES.type
+            SearchTabType.MUSIC.type -> SearchEntityType.MUSIC.type
+            SearchTabType.APPS.type -> SearchEntityType.APPS.type
+            SearchTabType.BOOKS.type -> SearchEntityType.BOOKS.type
             else -> ""
         }
 

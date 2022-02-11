@@ -24,7 +24,7 @@ class CollectionRemoteDataSourceImpl @Inject constructor(
             queryMap[TERM] = params.query.ignoreNull()
             queryMap[ENTITY] = params.entity.ignoreNull()
             queryMap[PAGE_OFFSET] = params.page.toString()
-            queryMap[PAGE_SIZE] = "20"
+            queryMap[PAGE_SIZE] = params.pageSize
 
             val response = service.getCollection(queryMap)
             val collection = mapper.map(response)

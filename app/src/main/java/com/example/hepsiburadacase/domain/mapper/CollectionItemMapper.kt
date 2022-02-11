@@ -9,17 +9,17 @@ import com.example.hepsiburadacase.util.mapper.Mapper
 class CollectionItemMapper : Mapper<Collection, CollectionViewItem> {
 
     override suspend fun map(item: Collection): CollectionViewItem {
-        val artObjects: ArrayList<ArticleViewItem> = arrayListOf()
+        val articles: ArrayList<ArticleViewItem> = arrayListOf()
         item.articles.forEach { response ->
-            val artObject = ArticleViewItem(
+            val articleItem = ArticleViewItem(
                 artworkUrl100 = response.artworkUrl100.ignoreNull(),
                 collectionName = response.collectionName.ignoreNull(),
                 collectionPrice = response.collectionPrice.ignoreNull(),
                 releaseDate = response.releaseDate.ignoreNull(),
                 description = response.description.ignoreNull()
             )
-            artObjects.add(artObject)
+            articles.add(articleItem)
         }
-        return CollectionViewItem(artObjects)
+        return CollectionViewItem(articles)
     }
 }

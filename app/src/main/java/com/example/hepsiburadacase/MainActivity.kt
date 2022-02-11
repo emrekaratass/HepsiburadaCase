@@ -22,26 +22,10 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
     }
 
-    fun openDetailFragment(artObjectViewItem: ArticleViewItem) {
+    fun openDetailFragment(articleViewItem: ArticleViewItem) {
         supportFragmentManager.beginTransaction()
-            .add(R.id.fragment_container_view, DetailFragment.newInstance(artObjectViewItem))
+            .add(R.id.fragment_container_view, DetailFragment.newInstance(articleViewItem))
             .addToBackStack(null)
             .commit()
-    }
-
-    override fun onWindowFocusChanged(hasFocus: Boolean) {
-        super.onWindowFocusChanged(hasFocus)
-        //if (hasFocus)
-           // hideSystemUI()
-    }
-
-    private fun hideSystemUI() {
-        window.setDecorFitsSystemWindows(false)
-        val controller = window.insetsController
-        if (controller != null) {
-            controller.hide(WindowInsets.Type.statusBars())
-            controller.systemBarsBehavior =
-                WindowInsetsController.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
-        }
     }
 }
