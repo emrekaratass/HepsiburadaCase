@@ -1,20 +1,20 @@
 package com.example.hepsiburadacase.ui.main
 
 import android.content.Context
-import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import android.widget.RadioButton
 import androidx.core.view.isVisible
 import androidx.core.widget.doAfterTextChanged
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.hepsiburadacase.MainActivity
 import com.example.hepsiburadacase.R
 import com.example.hepsiburadacase.databinding.FragmentMainBinding
+import com.example.hepsiburadacase.ui.main.MainFragmentDirections.actionMainFragmentToDetailFragment
 import com.example.hepsiburadacase.util.delegate.viewBinding
 import com.example.hepsiburadacase.util.enums.SearchEntityType
 import com.example.hepsiburadacase.util.enums.SearchTabType
@@ -34,7 +34,11 @@ class MainFragment : Fragment(R.layout.fragment_main) {
     private val adapter: ArticlesAdapter by lazy {
         ArticlesAdapter {
             hideKeyboard()
-            (activity as MainActivity).openDetailFragment(it)
+
+            val directions = actionMainFragmentToDetailFragment(
+                it
+            )
+            findNavController().navigate(directions)
         }
     }
 

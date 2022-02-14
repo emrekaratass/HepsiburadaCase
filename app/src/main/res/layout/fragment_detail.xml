@@ -65,10 +65,10 @@
                     app:layout_constraintEnd_toEndOf="parent" />
 
                 <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/image_button_back"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="16dp"
-                    android:id="@+id/image_button_back"
                     android:background="@drawable/ic_back_button"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -94,6 +94,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_margin="8dp"
+                    android:textColor="@color/black"
                     android:textSize="16sp"
                     android:textStyle="bold"
                     app:layout_constraintStart_toEndOf="@+id/image_view"
@@ -107,10 +108,10 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="16dp"
-            android:textSize="16sp"
-            android:textColor="@color/black"
-            android:textStyle="bold"
             android:background="@color/white"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold"
             tools:text="Description" />
     </LinearLayout>
 </androidx.core.widget.NestedScrollView>

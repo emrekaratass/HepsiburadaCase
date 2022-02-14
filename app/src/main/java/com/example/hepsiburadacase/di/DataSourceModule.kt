@@ -1,4 +1,4 @@
-package com.ozantopuz.rijksmuseumapp.di
+package com.example.hepsiburadacase.di
 
 import com.example.hepsiburadacase.data.datasource.CollectionRemoteDataSource
 import com.example.hepsiburadacase.data.datasource.CollectionRemoteDataSourceImpl
